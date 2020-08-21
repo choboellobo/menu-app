@@ -9,9 +9,8 @@ import useProducts from "../composables/useProducts";
 import { ref } from "@vue/composition-api";
 export default {
   name: "Productos",
-  setup(props, contexto) {
-    console.log(contexto);
-    const { getAll } = useProducts();
+  setup(props) {
+    const { getAll } = useProducts(id);
     const productos = ref([]);
     getAll().then((d) => {
       productos.value = d;

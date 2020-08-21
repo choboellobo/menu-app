@@ -9,8 +9,7 @@ import useProducts from "../composables/useProducts";
 import { ref } from "@vue/composition-api";
 export default {
   name: "Productos",
-  setup(props, contexto) {
-    console.log(contexto);
+  setup() {
     const { getAll } = useProducts();
     const productos = ref([]);
     getAll().then((d) => {

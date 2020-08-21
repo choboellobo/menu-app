@@ -1,9 +1,9 @@
 <template>
   <div class="categories">
-    <router-link v-for="(c, index) in categorias" :key="index" class="category"  :to="{ name: 'Productos', params: { category_id: c.id }}" >
+    <a v-for="(c, index) in categorias" :key="index" class="category">
       <img :src="c.icono" alt="" />
       <p>{{ c.descripcion }}</p>
-    </router-link>
+    </a>
   </div>
 </template>
 <script>
@@ -37,15 +37,14 @@ export default {
   padding: 10px;
   padding-top: 15px;
   padding-bottom: 15px;
+  transition: all 0.3s ease-out;
   cursor: pointer;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
-  &:nth-child(odd){
-   margin-right: .5rem;
-  }
   img {
     width: 60px;
     height: 60px;

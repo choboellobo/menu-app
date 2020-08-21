@@ -1,6 +1,6 @@
 <template>
   <div class="categories">
-    <router-link v-for="(c, index) in categorias" :key="index" class="category"  :to="{ name: 'Productos', params: { category_id: c.id }}" >
+    <router-link v-for="(c, index) in categorias" :key="index" class="category"  :to="{ name: 'Productos', params: { category_id }}" >
       <img :src="c.icono" alt="" />
       <p>{{ c.descripcion }}</p>
     </router-link>

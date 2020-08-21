@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-    <h1>{{productos.length}}</h1>
+    <h1>Productos</h1>
   </div>
 </template>
 
@@ -9,8 +9,7 @@ import useProducts from "../composables/useProducts";
 import { ref } from "@vue/composition-api";
 export default {
   name: "Productos",
-  setup(props, contexto) {
-    console.log(contexto);
+  setup() {
     const { getAll } = useProducts();
     const productos = ref([]);
     getAll().then((d) => {
