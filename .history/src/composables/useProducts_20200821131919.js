@@ -7,11 +7,11 @@ export default function (categoryId) {
         .doc('eZn3sMW1O6dEgfL3DAcu')
         .collection('categorias')
         .doc(categoryId)
-        .collection('productos').orderBy('index', 'asc')
+        .collection('productos').where('activo', '==', true).orderBy('index', 'asc')
         .get().then( snap => {
             const productos = []
             snap.docs.forEach( doc => productos.push(doc.data()))
-            return productos.filter(item => item.activo);
+            return productos
         })
     }
     return {getAll}

@@ -11,7 +11,7 @@ export default function (categoryId) {
         .get().then( snap => {
             const productos = []
             snap.docs.forEach( doc => productos.push(doc.data()))
-            return productos.filter(item => item.activo);
+            return productos.filter(item => item.active)
         })
     }
     return {getAll}

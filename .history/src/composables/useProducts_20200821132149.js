@@ -10,8 +10,8 @@ export default function (categoryId) {
         .collection('productos').orderBy('index', 'asc')
         .get().then( snap => {
             const productos = []
-            snap.docs.forEach( doc => productos.push(doc.data()))
-            return productos.filter(item => item.activo);
+            snap.docs.forEach( doc => productos.push(doc.data().filter(item => item.active)))
+            return productos
         })
     }
     return {getAll}
