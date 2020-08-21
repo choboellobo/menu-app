@@ -2,11 +2,12 @@ import useFirestoreDatabase from './useFirestoreDatabase';
 export default function () {
     const {connection} = useFirestoreDatabase();
     const getAll = async () => {
-        await connection()
+        return await connection()
         .collection('categorias')
-        .onSnapshot((snapshot) => {
-            const data = snapshot.data();
-            return data;
+        .get().then( snap => {
+            const categorias = []
+            snap.docs.forEach( doc => categorias.push(doc.data()))
+            return categorias
         })
     }
     return {getAll};
