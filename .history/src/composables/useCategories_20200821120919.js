@@ -9,7 +9,8 @@ export default function () {
         .get().then( snap => {
             const categorias = []
             snap.docs.forEach( doc => {
-                categorias.push({id: doc.id, ...doc.data() })
+                console.log(doc);
+                categorias.push(doc.data())
             })
             return categorias
         })

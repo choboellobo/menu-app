@@ -49,15 +49,16 @@ export default {
   &:nth-child(odd){
    margin-right: .5rem;
   }
+  img {
+    width: 60px;
+    height: 60px;
+  }
   p {
     font-size: 16px;
     margin-bottom: 0px;
     color: #999999;
     margin-top: 10px;
     text-align: center;
-    &:nth-of-type(2){
-      font-weight: bold;
-    }
   }
 }
 </style>

@@ -1,39 +1,36 @@
 <template>
-  <div class="products" >
-    <div class="product" v-for="(p, index) in productos" :key="index">
-      <p>Lorem</p>
-      <p>{{p.precio}} <small>€</small> </p>
-    </div>
- 
+  <div class="categories">
+    <router-link v-for="(c, index) in categorias" :key="index" class="category"  :to="{ name: 'Productos', params: { category_id: c.category_id }}" >
+      <img :src="c.icono" alt="" />
+      <p>{{ c.descripcion }}</p>
+    </router-link>
   </div>
 </template>
-
 <script>
-import useProducts from "../composables/useProducts";
+import useCategories from "../composables/useCategories";
 import { ref } from "@vue/composition-api";
 export default {
-  name: "Productos",
-  setup(props, contexto) {
-    const category_id = contexto.root.$route.params.category_id
-    const { getAll } = useProducts(category_id);
-    const productos = ref([]);
+  name: "Categorias",
+  setup() {
+    const { getAll } = useCategories();
+    const categorias = ref([]);
     getAll().then((d) => {
-      productos.value = d;
+      categorias.value = d;
       console.log(d);
     });
-    return {productos}
+    return { categorias };
   },
 };
 </script>
 <style lang="scss" scoped>
-.products{
+.categories{
   display: flex;
   flex-wrap: wrap;
   max-width: 90%;
   margin: 0 auto;
 }
-.product {
-  width: 90%;
+.category {
+  flex: 0 1 40%;
   background: #ffffff;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   border-radius: 5px;
@@ -49,15 +46,16 @@ export default {
   &:nth-child(odd){
    margin-right: .5rem;
   }
+  img {
+    width: 60px;
+    height: 60px;
+  }
   p {
     font-size: 16px;
     margin-bottom: 0px;
     color: #999999;
     margin-top: 10px;
     text-align: center;
-    &:nth-of-type(2){
-      font-weight: bold;
-    }
   }
 }
 </style>

@@ -33,7 +33,7 @@ export default {
   margin: 0 auto;
 }
 .product {
-  width: 90%;
+  flex: 0 1 40%;
   background: #ffffff;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   border-radius: 5px;
@@ -49,15 +49,16 @@ export default {
   &:nth-child(odd){
    margin-right: .5rem;
   }
+  img {
+    width: 60px;
+    height: 60px;
+  }
   p {
     font-size: 16px;
     margin-bottom: 0px;
     color: #999999;
     margin-top: 10px;
     text-align: center;
-    &:nth-of-type(2){
-      font-weight: bold;
-    }
   }
 }
 </style>
