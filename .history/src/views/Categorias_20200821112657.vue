@@ -44,7 +44,6 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
   img {
     width: 60px;
     height: 60px;

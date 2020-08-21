@@ -2,7 +2,7 @@
   <div class="categories">
     <a v-for="(c, index) in categorias" :key="index" class="category">
       <img :src="c.icono" alt="" />
-      <p>{{ c.nombre }}</p>
+      <h1>{{ c.nombre }}</h1>
     </a>
   </div>
 </template>
@@ -23,14 +23,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.categories{
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 90%;
-  margin: 0 auto;
-}
 .category {
-  width: 40%;
+  width:50%;
   background: #ffffff;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   border-radius: 5px;
@@ -40,21 +34,6 @@ export default {
   transition: all 0.3s ease-out;
   cursor: pointer;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  img {
-    width: 60px;
-    height: 60px;
-  }
-  p {
-    font-size: 16px;
-    margin-bottom: 0px;
-    color: #999999;
-    margin-top: 10px;
-    text-align: center;
-  }
+  display: block;
 }
 </style>
