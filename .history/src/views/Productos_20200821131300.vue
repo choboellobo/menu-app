@@ -1,6 +1,5 @@
 <template>
-  <div class="products">
-    <h1 v-if="categoria">{{categoria.nombre}}</h1>
+  <div class="products" >
     <div class="product" v-for="(p, index) in productos" :key="index">
       <p>Lorem</p>
       <p>{{p.precio}} <small>€</small> </p>
@@ -30,7 +29,7 @@ export default {
       productos.value = d;
       console.log(d);
     });
-    return {productos, categoria}
+    return {productos}
   },
 };
 </script>

@@ -21,7 +21,11 @@ export default function () {
         .collection('categorias')
         .doc(id)
         .get().then(category => {
-            return category.data();
+            let categoria = null
+            category.docs.forEach( doc => {
+                categoria = doc.data();
+            });
+            return categoria
         } )
     }
     return {getAll, getCategory};

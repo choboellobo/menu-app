@@ -15,13 +15,18 @@ export default function () {
         })
     };
     const getCategory = async (id) => {
+        console.log(id);
         return await connection()
         .collection('locales')
         .doc('eZn3sMW1O6dEgfL3DAcu')
         .collection('categorias')
         .doc(id)
         .get().then(category => {
-            return category.data();
+            let categoria = null
+            category.docs.forEach( doc => {
+                categoria = doc.data();
+            });
+            return categoria
         } )
     }
     return {getAll, getCategory};
