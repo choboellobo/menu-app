@@ -2,7 +2,7 @@
   <div class="categories">
     <a v-for="(c, index) in categorias" :key="index" class="category">
       <img :src="c.icono" alt="" />
-      <p>{{ c.nombre }}</p>
+      <p>{{ c.descripcion }}</p>
     </a>
   </div>
 </template>

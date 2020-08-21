@@ -3,7 +3,9 @@ export default function () {
     const {connection} = useFirestoreDatabase();
     const getAll = async () => {
         return await connection()
-        .collection('categorias')
+        .collection('locales')
+        .doc('eZn3sMW1O6dEgfL3DAcu')
+        .collection('categorias').orderBy('index', 'asc')
         .get().then( snap => {
             const categorias = []
             snap.docs.forEach( doc => categorias.push(doc.data()))
