@@ -11,9 +11,9 @@ Vue.use(VueRouter)
     component: Categorias
   },
   {
-    path: '/productos',
-    name: 'Productos',
-    component: () => import('../views/Productos.vue')
+    path: '/Productos',
+    name: 'About',
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
 

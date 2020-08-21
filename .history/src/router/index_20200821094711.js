@@ -11,7 +11,7 @@ Vue.use(VueRouter)
     component: Categorias
   },
   {
-    path: '/productos',
+    path: '/Productos',
     name: 'Productos',
     component: () => import('../views/Productos.vue')
   }

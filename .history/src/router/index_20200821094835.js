@@ -7,7 +7,7 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/',
-    name: 'Categorias',
+    name: 'categorias',
     component: Categorias
   },
   {
