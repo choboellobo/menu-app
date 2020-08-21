@@ -10,7 +10,6 @@ export default {
   setup(){
     const {getAll} = useCategories();
     getAll().then(console.log)
-    return {}
   }
 }
 </script>

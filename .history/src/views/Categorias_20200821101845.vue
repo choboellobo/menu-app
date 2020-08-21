@@ -9,8 +9,6 @@ export default {
   name: 'Categorias',
   setup(){
     const {getAll} = useCategories();
-    getAll().then(console.log)
-    return {}
   }
 }
 </script>
