@@ -6,12 +6,15 @@ export default function () {
         const data = ref(null)
         connection()
             .collection('locales')
-            .doc('eZn3sMW1O6dEgfL3DAcu')
+            .doc(sessionStorage.getItem('local'))
             .collection('categorias').orderBy('index', 'asc')
-            .onSnapshot( snap => {
+            .onSnapshot(  snap => {
                 const categorias = []
-                snap.docs.forEach( doc => {
-                    categorias.push({id: doc.id, ...doc.data() })
+                snap.docs.forEach(async doc => {
+                    const data = doc.data()
+                    const categoriaRef = await connection().collection('categorias').doc(data.categoria_id).get()
+                    const categoria = categoriaRef.data()
+                    categorias.push({id: doc.id, ...data, nombre: categoria.nombre, descripcion: categoria.descripcion, icono: categoria.icono })
                 });
                 data.value = categorias;
             })
@@ -21,11 +24,14 @@ export default function () {
         const data = ref(null)
         connection()
         .collection('locales')
-        .doc('eZn3sMW1O6dEgfL3DAcu')
+        .doc(sessionStorage.getItem('local'))
         .collection('categorias')
         .doc(id)
-        .onSnapshot( snap => {
-            data.value = snap.data()
+        .onSnapshot( async snap => {
+            const dataRef = snap.data()
+            const categoriaRef = await connection().collection('categorias').doc(dataRef.categoria_id).get()
+            const categoria = categoriaRef.data()
+            data.value = {...dataRef, ...categoria}
         })
         return data;
     }

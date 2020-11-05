@@ -6,7 +6,7 @@ export default function (categoryId) {
         const data = ref(null)
         connection()
         .collection('locales')
-        .doc('eZn3sMW1O6dEgfL3DAcu')
+        .doc(sessionStorage.getItem('local'))
         .collection('categorias')
         .doc(categoryId)
         .collection('productos').orderBy('index', 'asc')
