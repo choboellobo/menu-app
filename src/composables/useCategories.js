@@ -1,12 +1,13 @@
 import useFirestoreDatabase from './useFirestoreDatabase';
 import { ref } from '@vue/composition-api'
+import state from '../store/index';
 export default function () {
     const {connection} = useFirestoreDatabase();
     const getAll = () => {
         const data = ref(null)
         connection()
             .collection('locales')
-            .doc(sessionStorage.getItem('local'))
+            .doc(state.state.local)
             .collection('categorias').orderBy('index', 'asc')
             .onSnapshot(  snap => {
                 const categorias = []
@@ -24,7 +25,7 @@ export default function () {
         const data = ref(null)
         connection()
         .collection('locales')
-        .doc(sessionStorage.getItem('local'))
+        .doc(state.state.local)
         .collection('categorias')
         .doc(id)
         .onSnapshot( async snap => {

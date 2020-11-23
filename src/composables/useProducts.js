@@ -1,12 +1,14 @@
 import useFirestoreDatabase from './useFirestoreDatabase';
 import { ref } from '@vue/composition-api'
+import state from '../store/index';
+
 export default function (categoryId) {
     const {connection} = useFirestoreDatabase();
     const getAll = () => {
         const data = ref(null)
         connection()
         .collection('locales')
-        .doc(sessionStorage.getItem('local'))
+        .doc(state.state.local)
         .collection('categorias')
         .doc(categoryId)
         .collection('productos').orderBy('index', 'asc')
