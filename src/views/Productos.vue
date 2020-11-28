@@ -38,7 +38,7 @@
           
         </div>
       </div>
-  </div>
+    </div>
   </main>
 </template>
 
@@ -49,8 +49,8 @@ import useCategories from "../composables/useCategories";
 export default {
   name: "Productos",
   setup(props, contexto) {
-    const category_id = contexto.root.$route.params.category_id
-    const {getCategory} = useCategories()
+    const category_id = contexto.root.$route.params.category_id;
+    const { getCategory } = useCategories();
     const { getAll } = useProducts(category_id);
     const productos = getAll()
     const categoria = getCategory(category_id)
