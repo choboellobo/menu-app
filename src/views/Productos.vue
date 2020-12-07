@@ -32,7 +32,7 @@
 
            <div class="alergicos">
               <span v-for="item in p.producto.alergicos" :key="item">
-                <img :src="'https://mfigrupo.com/wp-content/uploads/2020/11/'+item+'.svg'" width="50">
+                <img :src="'https://kokomosportsbar.com/wp-content/uploads/2020/11/'+item+'.svg'" width="50">
               </span>
           </div>
           
@@ -103,7 +103,7 @@ export default {
   box-sizing: border-box;
   display: inline-block;
   margin-right: 5px;
-  background-image: url(https://mfigrupo.com/wp-content/uploads/2020/10/fondo-original.png);
+  background-image: url(https://kokomosportsbar.com/wp-content/uploads/2020/10/fondo-original.png);
   text-align: left;
   padding: 1em;
   padding-bottom: 0;

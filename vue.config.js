@@ -1,3 +1,3 @@
 module.exports = {
-    //publicPath : '/wp-content/menu'
+    publicPath : '/wp-content/menu'
 }
